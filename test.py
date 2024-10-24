@@ -4,8 +4,16 @@ data = pd.read_csv('rba-dataset.csv')
 
 print(data.head())
 
-A = data.iloc[:int(len(data)/2)]
-B = data.iloc[int(len(data)/2):]
+split = [None for i in range(20)]
+j1, j2 = 0, int(len(data)/20)
+print(len(data))
+print(j1, j2)
+# for i in range(20):
+#     split[i] = data.iloc[j1:j1 + j2]
+#     j1 += j2
 
-# A.to_csv('A.csv', index=False)
-# B.to_csv('B.csv', index=False)
+# print('done splitting')
+
+# for i in range(20):
+#     split[i].to_csv('rba-split-{i}.csv', index=False)
+#     print(split[i].head())
