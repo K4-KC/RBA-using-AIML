@@ -1,2 +1,4 @@
 rba-dataset.csv
 venv/
+*.csv
+data/
