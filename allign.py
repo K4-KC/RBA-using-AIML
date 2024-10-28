@@ -113,7 +113,7 @@
 import csv
 import pandas as pd
 
-for file_no in range(1, 24):
+for file_no in range(0, 24):
 
     f = f'data/rba-split-{file_no}.csv'
     final = []
@@ -124,7 +124,7 @@ for file_no in range(1, 24):
     with open(f, 'r', encoding='utf-8') as file:
         for line in range(lines):
             row = file.readline()
-            if not line%100000: print(line)
+            # if not line%100000: print(line)
             splitted = row.split(',')
             elements = len(splitted)
             first = splitted[:9]
