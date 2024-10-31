@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv('rba-dataset.csv')
+data = pd.read_csv('data/rba-dataset.csv')
 
 print(data.head())
 

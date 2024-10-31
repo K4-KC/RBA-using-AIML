@@ -119,28 +119,27 @@ for file_no in range(0, 24):
     final = []
     data = pd.read_csv(f)
     lines = data.shape[0]
-    print(lines)
+    # print(lines)
 
     with open(f, 'r', encoding='utf-8') as file:
         for line in range(lines):
             row = file.readline()
             # if not line%100000: print(line)
             splitted = row.split(',')
-            elements = len(splitted)
             first = splitted[:9]
             last = splitted[-6:]
             last[-1] = last[-1][:-1]
-            middle = splitted[9:elements-6]
+            middle = splitted[9:-6]
             UAS = ''
             for string in middle:
-                UAS += string.replace('"', '').replace(';', '|')
+                UAS += string.replace('"', '').replace(';', '|') + '&'
             UAS = UAS[:-1]
             
             final.append(first + [UAS] + last)
 
 
-    with open(f'data/corrected/rba-split-corrected-{file_no}.csv', 'w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerows(final)
+    # with open(f'data/corrected/rba-split-corrected-{file_no}.csv', 'w', newline='', encoding='utf-8') as file:
+    #     writer = csv.writer(file)
+    #     writer.writerows(final)
 
     print(f'Done {file_no}')
