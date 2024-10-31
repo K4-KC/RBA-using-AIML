@@ -122,7 +122,8 @@ for file_no in range(0, 24):
     # print(lines)
 
     with open(f, 'r', encoding='utf-8') as file:
-        for line in range(lines):
+        final.append(file.readline().split(','))
+        for line in range(1, lines):
             row = file.readline()
             # if not line%100000: print(line)
             splitted = row.split(',')
@@ -132,14 +133,14 @@ for file_no in range(0, 24):
             middle = splitted[9:-6]
             UAS = ''
             for string in middle:
-                UAS += string.replace('"', '').replace(';', '|') + '&'
-            UAS = UAS[:-1]
+                UAS += string.replace('"', '').replace(';', '|') + ' &'
+            UAS = UAS[:-2]
             
             final.append(first + [UAS] + last)
 
 
-    # with open(f'data/corrected/rba-split-corrected-{file_no}.csv', 'w', newline='', encoding='utf-8') as file:
-    #     writer = csv.writer(file)
-    #     writer.writerows(final)
+    with open(f'data/corrected/rba-split-corrected-{file_no}.csv', 'w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerows(final)
 
-    print(f'Done {file_no}')
+    print(f'Done file no: {file_no}')
