@@ -1,3 +1,8 @@
-lit-corrected-0.csv', 'w', newline='', encoding='utf-8') as file:
-    writer = csv.writer(file)
-    writer.writerows(final)
+ABLE IF EXISTS rba; """
+c.execute(drop_table)
+
+create_table = """ CREATE TABLE IF NOT EXISTS rba (
+    User_ID BIGINT,
+    Is_Account_Takeover BOOL
+); """
+c.execute(create_table)
