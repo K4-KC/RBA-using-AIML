@@ -51,8 +51,14 @@ for file in range(1):
     # sql_data = data.loc[data['Is Account Takeover'] == True][['User ID', 'Round-Trip Time [ms]', 'Is Account Takeover']]
     sql_data = data
     
+    print('begin adding', len(sql_data))
+    
     for index, row in sql_data.iterrows():
-        if index == 100: break
+        if index % 100000 == 0:
+            print(index)
+            c.executemany("INSERT INTO rba VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", add)
+            # conn.commit()
+            add = []
         add.append((row['User ID'], 
                     np.array((True, int(row['Round-Trip Time [ms]'])), dtype=np.int32).tobytes() if not np.isnan(row['Round-Trip Time [ms]']) else np.array((False, 0), dtype=np.int32).tobytes(), 
                     np.array((row['IP Address']).split('.') + get_one_hot_encoding(Ip_Address, row['IP Address']), dtype=np.int16).tobytes(),
@@ -64,9 +70,6 @@ for file in range(1):
                     True if row['Login Successful'] == True else False,
                     True if row['Is Attack IP'] == True else False,
                     True if row['Is Account Takeover'] == True else False))
-    
-    print('begin adding')
-    c.executemany("INSERT INTO rba VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", add)
 
 c.execute("SELECT * FROM rba")
 first_entry = c.fetchone()
