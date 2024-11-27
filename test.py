@@ -123,24 +123,27 @@
 # print(Device_type)
 # print(len(Ip_Address), len(country), len(region), len(city), len(Asn), len(Device_type))
 
-import nltk
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
-import string
+# import nltk
+# from nltk.tokenize import word_tokenize
+# from nltk.corpus import stopwords
+# import string
 
-nltk.download('punkt')
-nltk.download('stopwords')
+# nltk.download('punkt')
+# nltk.download('stopwords')
 
 
-text = "Mozilla/5.0  (iPhone| CPU iPhone OS 13_4 like Mac OS X) Gecko/20150101 Firefox/20.0.0.1618 (Chrome variation/248113"
+# text = "Mozilla/5.0  (iPhone| CPU iPhone OS 13_4 like Mac OS X) Gecko/20150101 Firefox/20.0.0.1618 (Chrome variation/248113"
 
-# tokenize the test
-text = word_tokenize(text)
+# # tokenize the test
+# text = word_tokenize(text)
 
-# remove all punctuation
-no_punct = ''.join([char for char in ''.join([word+' ' for word in text]) if (char not in string.punctuation and not char.isdigit())])
-print(no_punct)
+# # remove all punctuation
+# no_punct = ''.join([char for char in ''.join([word+' ' for word in text]) if (char not in string.punctuation and not char.isdigit())])
+# print(no_punct)
 
-text = word_tokenize(no_punct)
+# text = word_tokenize(no_punct)
 
-print(text)
+# print(text)
+
+for i in range(0, 11, 3):
+    print(i)
