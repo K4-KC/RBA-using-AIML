@@ -20,12 +20,10 @@ RBA-using-AIML is a research project that applies artificial intelligence and ma
 git clone https://github.com/K4-KC/RBA-using-AIML.git
 cd RBA-using-AIML
 
-text
 2. (Optional but recommended) Create and activate a virtual environment for Python.  
 3. Install dependencies:
 pip install -r requirements.txt
 
-text
 4. Ensure your input CSV files are placed in the expected data directory or update the script paths accordingly.  
 
 ---
@@ -37,31 +35,26 @@ The project is organized around several standalone scripts, which can be run ste
 1. **Align data from different CSVs**  
 python allign.py
 
-text
 This script merges and aligns data from multiple CSV files into a consistent format.
 
 2. **Generate one-hot encodings and unique-value summaries**  
 python find_hot_encoding.py
 
-text
 Use this to inspect categorical columns and create one-hot–encoded features for model input.
 
 3. **Extract attacked-user records**  
 python get_attacked_data.py
 
-text
 This produces an `attack.csv` file containing data for users identified as attacked in the dataset.
 
 4. **Split aligned data into multiple parts**  
 python split.py
 
-text
 After alignment, this script splits the dataset into 24 separate files for easier handling and experimentation.
 
 5. **Train the machine learning model**  
 python train.py
 
-text
 This script trains an account takeover detection model using the prepared features and datasets.
 
 Adjust file paths, hyperparameters, and model settings inside the scripts to match your environment and experimental setup.
