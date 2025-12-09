@@ -2,9 +2,6 @@
 
 RBA-using-AIML is a research project that applies artificial intelligence and machine learning techniques to detect account takeover attacks using an intrusion detection–style pipeline.[file:1] The repository contains Python scripts for data preprocessing, feature preparation, and model training to build a risk-based authentication system.[file:1]
 
-> This implementation corresponds to the algorithm proposed in your published research paper.  
-> Replace this line with the full citation to your article (title, authors, venue, year, and DOI if available).
-
 ---
 
 ## Features
